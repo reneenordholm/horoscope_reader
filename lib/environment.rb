@@ -1,4 +1,6 @@
 require_relative "./horoscopes/version"
+require 'pry'
+require 'open-uri' 
 
 module HoroscopeReader
   class Error < StandardError; end
@@ -6,4 +8,5 @@ module HoroscopeReader
 end
 
 require_relative './horoscope'
+require_relative './horoscope_scraper'
 require_relative './cli'
