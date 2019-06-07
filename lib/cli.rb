@@ -5,16 +5,21 @@ class CLI
     #(i.e. self.greeting), this is implied or implicit--
     #Ruby knows to call self.greeting.
     greeting #instance of the CLI class
-    HoroscopeScraper.scrape_signs
     show_signs
-    # HoroscopeScraper.scrape_horoscopes
+    display_horoscope
+    puts "\n\n"
   end
 
   def greeting
-    puts "\nWelcome to horoscope reader! Enter your sign from the list below to read your horoscope.\n\n"
+    puts "\nWelcome to horoscope reader!\nEnter your sign from the list below to read your horoscope.\n\n"
   end
 
   def show_signs
-    HoroscopeScraper.scrape_signs.each { |key, value| puts "#{key} | #{value}"}
+    horoscope_array = HoroscopeScraper.scrape_signs
+    Horoscope.create_from_collection(horoscope_array)
+  end
+
+  def display_horoscope
+    Horoscope.all.each { |horoscope| puts "#{horoscope.sign} | #{horoscope.date}" }
   end
 end
