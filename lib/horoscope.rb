@@ -1,6 +1,6 @@
 class Horoscope
 
-  attr_accessor :sign, :date
+  attr_accessor :sign, :date, :horoscope_data
 
   @@all = []
 
@@ -11,10 +11,6 @@ class Horoscope
 
   def self.create_from_collection(horoscope_array)
     horoscope_array.each { |horoscope| Horoscope.new(horoscope) }
-  end
-
-  def add_horoscope_attributes(attributes_hash)
-    attributes_hash.each { |key, value| self.send("#{key}=", value) }
   end
 
   def self.all
