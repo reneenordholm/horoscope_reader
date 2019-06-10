@@ -7,16 +7,7 @@ class CLI
     greeting #instance of the CLI class
     pull_signs
     display_signs
-    puts "\n"
-    loop do
-      user_input = main_menu
-      if user_input.include?("n") || user_input.include?("ex")
-        puts "Goodbye"
-        return
-      else
-        display_horoscope
-      end
-    end
+    main_menu
   end
 
   def greeting
@@ -33,12 +24,19 @@ class CLI
   end
 
   def main_menu
-    puts "What's your sign?"
-    input = gets.strip.downcase
-    return input
+    puts "\nWhat's your sign?"
+    user_input = gets.strip.downcase
+    loop do
+      if user_input.include?("n") || user_input.include?("ex")
+        puts "Goodbye\n"
+        return
+      else
+        display_horoscope(user_input)
+      end
+    end
   end
 
-  def display_horoscope(sign)
+  def display_horoscope(user_input)
     puts "Your horoscope is:"
     return horoscope.horoscope_data(sign)
   end
