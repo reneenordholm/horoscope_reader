@@ -6,6 +6,7 @@ class Horoscope
 
   def initialize(horoscope_hash)
     horoscope_hash.each { |attribute, value| self.send("#{attribute}=", value) }
+    @horoscope_data = horoscope_data
     @@all << self
   end
 

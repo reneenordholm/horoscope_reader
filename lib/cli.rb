@@ -25,7 +25,7 @@ class CLI
 
   def main_menu
     puts "\nWhat's your sign?"
-    user_input = gets.strip.downcase
+    user_input = gets.strip
     loop do
       if user_input.include?("n") || user_input.include?("ex")
         puts "Goodbye\n"
@@ -38,7 +38,7 @@ class CLI
 
   def display_horoscope(user_input)
     puts "Your horoscope is:"
-    return horoscope.horoscope_data(sign)
+    puts HoroscopeScraper.scrape_horoscopes(user_input)
   end
 
 

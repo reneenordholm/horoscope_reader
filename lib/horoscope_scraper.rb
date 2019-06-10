@@ -19,8 +19,11 @@ class HoroscopeScraper
     horoscope_hash
   end
 
-  def self.scrape_horoscopes
-
+  def self.scrape_horoscopes(horoscope)
+    pg = open(horoscope.horoscope_data)
+    html = Nokogiri::HTML(pg)
+    read = html.css("main.main-horoscope grid-single-m p").text
+    return read
   end
 
 end
