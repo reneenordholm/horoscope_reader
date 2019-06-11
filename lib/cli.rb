@@ -27,24 +27,31 @@ class CLI
   def main_menu
     puts "\nEnter the number associated with your sign to read today's horoscope."
     index = gets.strip.to_i - 1
-    sign = Horoscope.all[index]
-    HoroscopeScraper.scrape_horoscopes(sign)
-    display_horoscope(sign)
-    # user_input = gets.strip
-    # loop do
-    #   if user_input.include?("n") || user_input.include?("ex")
-    #     puts "Goodbye\n"
-    #     return
-    #   else
-    #     display_horoscope(user_input)
-    #   end
-    # end
+      if index >= 0 && index <= 11
+        sign = Horoscope.all[index]
+        HoroscopeScraper.scrape_horoscopes(sign)
+        display_horoscope(sign)
+      else
+        puts "Please enter a number between 1-12."
+        main_menu
+      end
   end
 
   def display_horoscope(sign)
     puts "\nYour horoscope for #{sign.horoscope_data}"
+    choose_another?
   end
 
-
+  def choose_another?
+    puts "\n\nWould you like to view another horoscope?\nEnter Y to return to main menu, or N to exit."
+    input = gets.strip.downcase
+    if input == "y"
+      display_signs
+      main_menu
+    else
+      puts "Goodbye"
+      return
+    end
+  end
 
 end
