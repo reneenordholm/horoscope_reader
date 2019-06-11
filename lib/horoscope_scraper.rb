@@ -20,8 +20,7 @@ class HoroscopeScraper
 
   def self.scrape_horoscopes(sign)
     doc = Nokogiri::HTML(open(BASE_URL + sign.horoscope_data))
-    read = doc.css("main.main-horoscope.grid-single-m p").text
-    # .collect {|x| x.attribute("href").value}
+    read = doc.css("main.main-horoscope.grid-single-m p").map(&:text)[0]
     sign.horoscope_data = read
   end
 
