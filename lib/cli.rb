@@ -25,7 +25,7 @@ class CLI
   end
 
   def main_menu
-    puts "\nEnter the number associated with your sign to read your horoscope."
+    puts "\nEnter the number associated with your sign to read today's horoscope."
     index = gets.strip.to_i - 1
     sign = Horoscope.all[index]
     HoroscopeScraper.scrape_horoscopes(sign)
@@ -42,8 +42,7 @@ class CLI
   end
 
   def display_horoscope(sign)
-    puts "Your horoscope is:"
-    puts sign.horoscope_data
+    puts "\nYour horoscope for #{sign.horoscope_data}"
   end
 
 
