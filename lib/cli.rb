@@ -20,8 +20,7 @@ class CLI
   end
 
   def display_signs
-    # Horoscope.all.each { |horoscope| puts "#{horoscope.sign} | #{horoscope.date}" }
-    Horoscope.all.each.with_index { |h, i| puts "#{i +1}. #{h.sign} | #{h.date}"}
+    Horoscope.all.each.with_index { |h, i| puts "#{i + 1}. #{h.sign} | #{h.date}"}
   end
 
   def main_menu
