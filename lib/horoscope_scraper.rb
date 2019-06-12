@@ -21,7 +21,7 @@ class HoroscopeScraper
   def self.scrape_horoscopes(sign)
     doc = Nokogiri::HTML(open(sign.horoscope_data))
     read = doc.css("main.main-horoscope.grid-single-m p").map(&:text)[0]
-    puts read
+    puts "\nYour horoscope for #{read}"
   end
 
 end

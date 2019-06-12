@@ -27,7 +27,6 @@ class CLI
     puts "\nEnter the number associated with your sign to read today's horoscope."
     index = gets.strip.to_i - 1
       if index >= 0 && index <= 11
-        puts "\nYour horoscope for"
         sign = Horoscope.all[index]
         HoroscopeScraper.scrape_horoscopes(sign)
         # display_horoscope(sign)
