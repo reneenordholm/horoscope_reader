@@ -8,7 +8,7 @@ class HoroscopeScraper
       parsed_html.css("div.grid.grid-6 a").each do |each_sign|
         sign = each_sign.css("h3").text
         date = each_sign.css("p").text
-        horoscope_data = "#{each_sign.attr("href")}"
+        horoscope_data = "#{BASE_URL + each_sign.attr("href")}"
         horoscope_hash << {
           sign: sign,
           date: date,
@@ -19,9 +19,9 @@ class HoroscopeScraper
   end
 
   def self.scrape_horoscopes(sign)
-    doc = Nokogiri::HTML(open(BASE_URL + sign.horoscope_data))
+    doc = Nokogiri::HTML(open(sign.horoscope_data))
     read = doc.css("main.main-horoscope.grid-single-m p").map(&:text)[0]
-    sign.horoscope_data = read
+    puts read
   end
 
 end

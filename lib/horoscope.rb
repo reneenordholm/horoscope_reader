@@ -16,5 +16,4 @@ class Horoscope
   def self.all
     @@all
   end
-
 end
