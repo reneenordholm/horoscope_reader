@@ -44,14 +44,17 @@ class CLI
   # end
 
   def choose_another?
-    puts "\n\nWould you like to view another horoscope?\nEnter Y to return to main menu, or N to exit."
+    puts "Would you like to view another horoscope?\nEnter Y to return to main menu, or N to exit."
     input = gets.strip.downcase
     if input == "y"
       display_signs
       main_menu
-    else
+    elsif input == "n"
       puts "Goodbye"
       return
+    else
+      puts "\nI did not understand your entry."
+      choose_another?
     end
   end
 

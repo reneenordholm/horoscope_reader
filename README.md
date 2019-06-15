@@ -1,8 +1,6 @@
-# HoroscopeReader
+# Horoscope Reader
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/horoscope_reader`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Horoscope Reader is a command line interface that scrapes data from Horoscope.com to present the user's selected horoscope simply.  To access the horoscope, the user runs the CLI program in their terminal and is presented with 12 astrological signs to choose from by number.  Upon entering the number associated with the user's sign choice, the program will then output the user's horoscope for that day and ask the user if they would like to view another horoscope.  If the user selects the option to view another horoscope, the program will run again, displaying the list of available signs for the user to pick from; if the user does not wish to view another horoscope, the program will say goodbye to the user and exit.
 
 ## Installation
 
