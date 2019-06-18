@@ -3,7 +3,6 @@ class HoroscopeScraper
   BASE_URL = "https://www.horoscope.com"
 
   def self.scrape_signs
-    puts "scraping first level"
     parsed_html = Nokogiri::HTML(open(BASE_URL))
     horoscope_hash = []
       parsed_html.css("div.grid.grid-6 a").each do |each_sign|
@@ -20,7 +19,6 @@ class HoroscopeScraper
   end
 
   def self.scrape_horoscopes(sign)
-    puts "scraping #{sign}"
     doc = Nokogiri::HTML(open(sign.horoscope_data))
     read = doc.css("main.main-horoscope.grid-single-m p").map(&:text)[0]
     sign.read = read

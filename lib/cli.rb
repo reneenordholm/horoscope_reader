@@ -1,10 +1,7 @@
 class CLI
 
-  def run #instance method
-    #uses implicit self-- there is no variable telling the system to view self
-    #(i.e. self.greeting), this is implied or implicit--
-    #Ruby knows to call self.greeting.
-    greeting #instance of the CLI class
+  def run
+    greeting
     pull_signs
     display_signs
     main_menu
