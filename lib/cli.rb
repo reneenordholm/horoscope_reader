@@ -29,6 +29,7 @@ class CLI
       if index >= 0 && index <= 11
         sign = Horoscope.all[index]
         HoroscopeScraper.scrape_horoscopes(sign)
+        puts "\nYour horoscope for #{sign.read}\n\n"
         choose_another?
       else
         puts "Please enter a number between 1-12."

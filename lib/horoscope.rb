@@ -1,6 +1,6 @@
 class Horoscope
 
-  attr_accessor :sign, :date, :horoscope_data
+  attr_accessor :sign, :date, :horoscope_data, :read
 
   @@all = []
 
