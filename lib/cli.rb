@@ -12,8 +12,8 @@ class CLI
   end
 
   def pull_signs
-    horoscope_array = HoroscopeScraper.scrape_signs
-    Horoscope.create_from_collection(horoscope_array)
+    horoscope_data = HoroscopeScraper.scrape_signs
+    Horoscope.create_from_collection(horoscope_data)
   end
 
   def display_signs
